@@ -1,0 +1,13 @@
+name: Python application test with Github Actions using devcontainers
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: make all
+      run: |
+        make install
+        make lint
+        make test
+        make format
