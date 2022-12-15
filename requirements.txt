@@ -14,3 +14,7 @@ evaluate==0.4.0
 torch==1.12.1
 torchvision==0.13.1
 scikit-learn==1.1.2
+sentencepiece==0.1.97
+git+https://github.com/makcedward/nlpaug.git
+git+https://github.com/PrithivirajDamodaran/Parrot_Paraphraser.git
+protobuf==3.20.0
