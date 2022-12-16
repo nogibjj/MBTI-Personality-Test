@@ -19,3 +19,5 @@ git+https://github.com/makcedward/nlpaug.git
 git+https://github.com/PrithivirajDamodaran/Parrot_Paraphraser.git
 protobuf==3.20.0
 gradio==3.13.0
+altair==4.2.0
+tensorboardX==2.5.1
