@@ -2,7 +2,7 @@ import gradio as gr
 from transformers import pipeline
 
 classifier = pipeline(
-        "text-classification", model="Shunian/mbti-classification-bert-base-uncased", top_k=1
+        "text-classification", model="Shunian/mbti-classification-roberta-base", top_k=1
     )
 
 def analytics_emo(x):
@@ -35,4 +35,4 @@ if __name__ == "__main__":
             inputs=analytics_input,
             outputs=text_output,
         )
-    demo.launch(debug=True, server_name="0.0.0.0", server_port=5000)
+    demo.launch(debug=True, server_name="0.0.0.0", server_port=5000, share=True)
