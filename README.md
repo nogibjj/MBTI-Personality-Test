@@ -97,3 +97,6 @@ to set up CI/CD using GitHub and AWS Elastic Container Registry (ECR) is as foll
 - Set up a release process that allows you to manually promote the code from the staging environment to production, or to automatically promote the code based on certain conditions.
 
 By following these steps, you can set up a CI/CD pipeline that automatically builds, tests, and deploys your code whenever changes are made to the repository on GitHub. This can help you to deliver code changes more frequently and with fewer errors, and can save you time by automating many of the manual tasks involved in the software development process.
+
+## Sample Output
+![imgs](/imgs/MBTI_Sample.png)
