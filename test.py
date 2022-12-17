@@ -1,8 +1,9 @@
 import pytest
+from app import analytics_emo
 
 
-def test_a():
-    assert 100 == 100
+def test_analytics():
+    assert analytics_emo("This is a good review")[0]["label"] == "LABEL_3"
 
 
 if __name__ == "__main__":
