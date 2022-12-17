@@ -18,14 +18,6 @@ jobs:
       with: 
         python-version: "3.10"
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-region: us-east-1
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-
     - name: Install
       run: |
         make install
@@ -39,7 +31,14 @@ jobs:
     - name: Test
       run: |
         make test
+
+    # - name: Configure AWS credentials
+    #   uses: aws-actions/configure-aws-credentials@v1
+    #   with:
+    #     aws-region: us-east-1
+    #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   
-    - name: Deploy
-      run: |
-        make deploy
+    # - name: Deploy
+    #   run: |
+    #     make deploy
