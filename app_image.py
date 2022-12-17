@@ -4,7 +4,7 @@ from transformers import pipeline
 
 classifier = pipeline(
     "text-classification",
-    model="Shunian/mbti-classification-bert-base-uncased",
+    model="Shunian/mbti-classification-roberta-base",
     top_k=1,
 )
 
@@ -29,9 +29,9 @@ gr.Interface(
     ),
     title="MBTI Personality Test",
     description="This is a demo of MBTI Personality Test",
-    allow_flagging=False,
+    allow_flagging='never',
     # examples for the user to try
     examples=[
         "My only recent picture of me is thanks to my ninja colleague Raged She still refuses to delete it"
     ],
-).launch()
+).launch(debug = True, server_name="0.0.0.0", server_port=5000, share=True)

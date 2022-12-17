@@ -3,7 +3,9 @@ LABEL MAINTAINER=sc765@duke.edu
 
 WORKDIR /app/
 # COPY ./interface.py ./
-COPY ./app.py ./
+COPY ./app_image.py ./
+
+COPY ./images ./images
 
 COPY ./requirements_docker.txt ./requirements.txt
 COPY ./Makefile ./
@@ -16,4 +18,4 @@ RUN python -c "from transformers import pipeline; pipeline('text-classification'
 
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+CMD ["python", "app_image.py"]
