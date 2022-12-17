@@ -1,3 +1,5 @@
+![Python application test with Github Actions](https://github.com/nogibjj/MBTI-Personality-Test/tree/main/.github/workflows/main.yml/badge.svg)
+
 # MBTI Personality Test
 
 
@@ -57,11 +59,40 @@ There are sixteen possible combinations of preferences, making up [16 total pers
 ## Dataset
 ![image](https://user-images.githubusercontent.com/90811429/208213986-7e6740ac-9c5a-4860-aedd-65c0c1a774f9.png)
 
+This (MBTI) Myers-Briggs Personality Type Dataset dataset is collected by MITCHELL J, can be found in [kaggle for more detail ](https://www.kaggle.com/datasets/datasnaek/mbti-type)
 
 
 ### Data Augmentation
 
+Because of the uneven data distribution, we use two types of methods to expansion our original dataset.
+- **[nlpaug](https://github.com/makcedward/nlpaug)**
+- **[Paraphraser](https://github.com/vsuthichai/paraphraser)**
+Data augmentation is a technique that can be used to improve the accuracy of natural language processing (NLP) models by increasing the size and diversity of the training data. This can be particularly useful when there is limited annotated data available, as it allows the model to learn from a larger and more diverse set of examples.
 
+There are a number of different techniques that can be used for data augmentation in NLP. Some common approaches include:
+
+- Synonym replacement: This involves replacing certain words in a sentence with their synonyms, which can help the model learn the meaning of words in different contexts.
+
+- Random insertion: This involves randomly inserting words into a sentence, which can help the model learn to handle variations in word order and sentence structure.
+
+- Random swap: This involves randomly swapping the positions of two words in a sentence, which can help the model learn to handle variations in word order.
+
+- Random deletion: This involves randomly deleting words from a sentence, which can help the model learn to handle missing or incomplete information.
+
+By using data augmentation techniques like these, it is possible to increase the size and diversity of the training data, which can lead to improved accuracy for NLP models.
 
 ## Continuous Integration/Continuous Deployment
 
+to set up CI/CD using GitHub and AWS Elastic Container Registry (ECR) is as follows:
+
+- Set up a repository on GitHub that contains your codebase.
+
+- Create a build pipeline in AWS CodePipeline that is triggered whenever a change is made to the repository on GitHub.
+
+- Set up a build stage in the pipeline that uses AWS CodeBuild to build and test the code.
+
+- Set up a deploy stage in the pipeline that uses AWS CodeDeploy to deploy the code to a staging environment.
+
+- Set up a release process that allows you to manually promote the code from the staging environment to production, or to automatically promote the code based on certain conditions.
+
+By following these steps, you can set up a CI/CD pipeline that automatically builds, tests, and deploys your code whenever changes are made to the repository on GitHub. This can help you to deliver code changes more frequently and with fewer errors, and can save you time by automating many of the manual tasks involved in the software development process.
