@@ -14,12 +14,12 @@ from transformers import AutoModelForSequenceClassification
 from transformers import TrainingArguments, Trainer
 import numpy as np
 
-MODEL_PATH = "roberta-base"
-TOKENIZER_PATH = "roberta-base"
-CHECK_POINT_PATH = "/workspaces/MBTI-Personality-Test/mbti-classification-roberta-base/checkpoint-20000"
-OUTPUT_DIR = "/workspaces/MBTI-Personality-Test/mbti-classification-roberta-base"
+MODEL_PATH = "xlnet-base-cased"
+TOKENIZER_PATH = "xlnet-base-cased"
+CHECK_POINT_PATH = "/workspaces/MBTI-Personality-Test/mbti-classification-xlnet-base-cased/checkpoint-20000"
+OUTPUT_DIR = "/workspaces/MBTI-Personality-Test/mbti-classification-xlnet-base-cased-augment"
 DATA_PATH = "/workspaces/MBTI-Personality-Test/tokenized_datasets"
-REPO_DIR = "mbti-classification-roberta-base"
+REPO_DIR = "mbti-classification-xlnet-base-cased-augment"
 
 def tokenize_function(examples):
     return tokenizer(examples["text"], padding="max_length", truncation=True, max_length=265)
@@ -27,7 +27,7 @@ def tokenize_function(examples):
 
 # Load the dataset
 if not os.path.exists(DATA_PATH):
-    dataset = load_dataset("Shunian/kaggle-mbti-cleaned")
+    dataset = load_dataset("Shunian/kaggle-mbti-cleaned-augmented")
     tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH)
     tokenized_datasets = dataset.map(tokenize_function, batched=True)
     tokenized_datasets.save_to_disk(DATA_PATH)
@@ -67,7 +67,7 @@ training_args = TrainingArguments(  output_dir=OUTPUT_DIR,
                                     per_device_train_batch_size=16, 
                                     per_device_eval_batch_size=16, 
                                     learning_rate=2e-5, 
-                                    num_train_epochs=5, 
+                                    num_train_epochs=3, 
                                     weight_decay=0.01,
                                     lr_scheduler_type='cosine',
                                     push_to_hub=True,
@@ -86,7 +86,7 @@ trainer = Trainer(
     compute_metrics=compute_metrics,
 )
 
-trainer.train(resume_from_checkpoint=CHECK_POINT_PATH) # train the model resume_from_checkpoint=CHECK_POINT_PATH
+trainer.train() # train the model resume_from_checkpoint=CHECK_POINT_PATH
 trainer.push_to_hub(REPO_DIR) 
 model.push_to_hub(REPO_DIR)
 tokenizer.push_to_hub(REPO_DIR)

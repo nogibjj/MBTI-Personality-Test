@@ -35,4 +35,4 @@ if __name__ == "__main__":
             inputs=analytics_input,
             outputs=text_output,
         )
-    demo.launch(debug=True, server_name="0.0.0.0", server_port=5000, share=True)
+    demo.launch(debug=True, server_name="0.0.0.0", server_port=5000)
