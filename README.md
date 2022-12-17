@@ -21,13 +21,15 @@ To install the dependencies, run the following command in the terminal:
 pip install -r requirements.txt
 ```
 more information about the dependencies can be found in the [requirements.txt](https://github.com/main/requirements.txt) file.
-## Run the Server
 To run the app server, run the following command in the terminal:
 ```
 python3 app.py
 ```
 then you can input sentences describing yourself or your feelings and then the app will generate your most possible persenality as an output.
 ### Run from docker
+```
+docker run --rm -it -p 3000:3000 shunianchen/ids706:latest
+```
 
 ## Model
 
@@ -53,6 +55,7 @@ Once you have determined which style you prefer for each of the four dichotomies
 There are sixteen possible combinations of preferences, making up [16 total personality types.](https://www.truity.com/myers-briggs/4-letters-myers-briggs-personality-types)
 
 ## Dataset
+https://storage.googleapis.com/kaggle-datasets-images/1831626/2988740/27fb5342b4c3cd9e782015d7b791bb87/dataset-cover.png?t=2021-12-30-19-31-49![image](https://user-images.githubusercontent.com/90811429/208213986-7e6740ac-9c5a-4860-aedd-65c0c1a774f9.png)
 
 
 
